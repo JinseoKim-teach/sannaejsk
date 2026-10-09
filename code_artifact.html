@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>천년의 빛, 고려 연등회 소원 밝히기</title>
+  <!-- Google Fonts: Gowun Batang for traditional serif, Noto Sans KR for UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            traditional: ['"Gowun Batang"', 'serif'],
+            sans: ['"Noto Sans KR"', 'sans-serif'],
+          },
+          colors: {
+            kred: '#C83232',
+            kgold: '#E6AF2E',
+            kblue: '#19385C',
+            kpaper: '#F7F3E9',
+            kborder: '#D5C7A3',
+          },
+          keyframes: {
+            gentleSway: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(-1deg)' },
+              '50%': { transform: 'translateY(-12px) rotate(1.5deg)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.85', filter: 'drop-shadow(0 0 15px rgba(245, 158, 11, 0.7))' },
+              '50%': { opacity: '1', filter: 'drop-shadow(0 0 28px rgba(251, 191, 36, 0.95))' },
+            },
+            floatUp: {
+              '0%': { transform: 'translateY(20px) scale(0.95)', opacity: '0' },
+              '100%': { transform: 'translateY(0px) scale(1)', opacity: '1' },
+            }
+          },
+          animation: {
+            'gentle-sway': 'gentleSway 5s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+            'float-up': 'floatUp 0.5s ease-out forwards',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbar for traditional look */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(20, 24, 38, 0.5);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c59b27;
+      border-radius: 9999px;
+    }
+    /* Hanji paper subtle texture overlay */
+    .hanji-bg {
+      background-color: #faf6ee;
+      background-image: radial-gradient(#d6c7a8 0.75px, transparent 0.75px), radial-gradient(#d6c7a8 0.75px, #faf6ee 0.75px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+    }
+    .hanji-card {
+      background: #fcf9f2;
+      border: 1px solid #d5c39c;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), inset 0 0 40px rgba(212, 175, 55, 0.08);
+    }
+    .night-sky-gradient {
+      background: radial-gradient(ellipse at 50% 25%, #182848 0%, #0d1629 60%, #050811 100%);
+    }
+    /* Stamp effect */
+    .traditional-stamp {
+      border: 2px solid #b91c1c;
+      color: #b91c1c;
+      border-radius: 6px;
+      transform: rotate(-10deg);
+      box-shadow: inset 0 0 3px rgba(185, 28, 28, 0.4);
+    }
+    /* Print specific styling */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #printContainer, #printContainer * {
+        visibility: visible;
+      }
+      #printContainer {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        display: block !important;
+        background: white !important;
+        color: black !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased overflow-x-hidden selection:bg-amber-500 selection:text-black">
+
+  <div id="app" class="relative min-h-screen flex flex-col justify-between">
+    
+    <!-- Top Navigation Header -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-slate-950/80 border-b border-amber-900/40 px-4 py-3 sm:px-6">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+        <!-- Logo & Title -->
+        <div class="flex items-center space-x-3 cursor-pointer" onclick="switchMode('classroom')">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-600 via-rose-500 to-amber-300 p-0.5 shadow-lg shadow-amber-500/20 flex items-center justify-center animate-pulse">
+            <span class="text-xl">🏮</span>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold tracking-widest text-amber-400 font-traditional uppercase">Goryeo Heritage</span>
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">훈요 6조</span>
+            </div>
+            <h1 class="text-lg sm:text-xl font-bold tracking-tight text-amber-100 font-traditional">천년의 빛, 고려 연등회 소원 밝히기</h1>
+          </div>
+        </div>
+
+        <!-- Mode Switcher Buttons -->
+        <div class="flex items-center gap-2 bg-slate-900/90 p-1.5 rounded-xl border border-amber-900/40 shadow-inner">
+          <button id="btnNavStudent" onclick="switchMode('student')" 
+            class="px-3.5 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-all flex items-center gap-1.5 text-slate-300 hover:text-white">
+            <svg class="w-4 h-4 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+            <span>소원 연등 만들기 <span class="hidden sm:inline">(학생)</span></span>
+          </button>
+          
+          <button id="btnNavClassroom" onclick="switchMode('classroom')" 
+            class="px-3.5 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-all flex items-center gap-1.5 bg-gradient-to-r from-amber-600 to-amber-700 text-amber-50 shadow-md">
+            <svg class="w-4 h-4 text-amber-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span>밤하늘 연등 축제 <span class="hidden sm:inline">(교실 대형화면)</span></span>
+          </button>
+        </div>
+
+        <!-- Utility Action Tools -->
+        <div class="flex items-center gap-2">
+          <!-- Audio Ambience Toggle -->
+          <button id="audioToggleBtn" onclick="toggleBgm()" title="은은한 범종/풍경 소리 켜기/끄기"
+            class="p-2 rounded-lg bg-slate-900/80 hover:bg-slate-800 text-amber-400 border border-amber-900/50 transition">
+            <svg id="audioIconOn" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clip-rule="evenodd"></path></svg>
+            <svg id="audioIconOff" class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM12.293 7.293a1 1 0 011.414 0L15 8.586l1.293-1.293a1 1 0 111.414 1.414L16.414 10l1.293 1.293a1 1 0 01-1.414 1.414L15 11.414l-1.293 1.293a1 1 0 01-1.414-1.414L13.586 10l-1.293-1.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+          </button>
+          
+          <!-- History Modal Button -->
+          <button onclick="openHistoryModal()" 
+            class="px-2.5 py-1.5 text-xs rounded-lg border border-amber-500/40 bg-amber-950/40 text-amber-300 hover:bg-amber-900/60 transition flex items-center gap-1 font-traditional">
+            <span>📜</span>
+            <span class="hidden sm:inline">역사 배경:</span> 훈요 6조
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="classroomView" class="relative flex-1 w-full h-[calc(100vh-65px)] overflow-hidden night-sky-gradient select-none">
+      
+      <!-- Night Sky Canvas for 3D/Parallax Lanterns & Stars -->
+      <canvas id="skyCanvas" class="absolute inset-0 w-full h-full cursor-pointer z-10"></canvas>
+
+      <!-- Traditional Atmosphere Background Accents -->
+      <!-- Glowing Full Moon -->
+      <div class="absolute top-10 right-10 sm:right-24 w-28 h-28 sm:w-40 sm:h-40 rounded-full bg-gradient-to-br from-amber-100 via-amber-200 to-amber-400 opacity-90 shadow-[0_0_90px_rgba(253,230,138,0.45)] pointer-events-none z-0">
+        <div class="w-full h-full rounded-full opacity-15 bg-[radial-gradient(ellipse_at_30%_30%,#78350f,transparent)]"></div>
+      </div>
+
+      <!-- Distant Goryeo Pagoda and Mountain Silhouette -->
+      <div class="absolute bottom-0 left-0 right-0 h-44 sm:h-56 pointer-events-none z-0 opacity-40">
+        <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1200 320" fill="none">
+          <path d="M0,320 L0,180 Q200,90 400,160 T800,140 Q1050,80 1200,200 L1200,320 Z" fill="#080c14" />
+          <path d="M0,320 L0,220 Q280,160 550,230 T1000,190 Q1120,170 1200,240 L1200,320 Z" fill="#04060a" />
+          <!-- Small Pagoda Silhouette on hill -->
+          <path d="M220,180 L228,180 L228,160 L234,160 L234,155 L228,155 L228,140 L233,140 L233,136 L226,136 L226,125 L224,115 L222,125 L220,136 L213,136 L213,140 L218,140 L218,155 L212,155 L212,160 L218,160 L218,180 Z" fill="#030508"/>
+        </svg>
+      </div>
+
+      <!-- Floating Lantern Festival Floating Stats & Top Control Strip -->
+      <div class="absolute top-4 left-4 z-20 flex flex-wrap items-center gap-2 text-xs">
+        <div class="bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-amber-500/30 text-amber-200 flex items-center gap-2 shadow-lg">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>밤하늘에 오른 소원: <strong id="lanternCountBadge" class="text-amber-400 font-bold">0</strong>개</span>
+        </div>
+        <div class="hidden md:flex bg-slate-900/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-700/60 text-slate-300 items-center gap-1.5">
+          <span>💡 연등을 클릭하면 학생의 소원을 크게 읽을 수 있습니다.</span>
+        </div>
+      </div>
+
+      <!-- Teacher's Dashboard Toolbar (Floating Bottom Bar) -->
+      <div class="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 w-11/12 max-w-4xl">
+        <div class="bg-slate-900/90 backdrop-blur-lg border border-amber-900/60 shadow-2xl rounded-2xl p-2.5 sm:p-3 flex flex-wrap items-center justify-between gap-2">
+          
+          <!-- Category Filter & Search -->
+          <div class="flex items-center gap-2 flex-1 min-w-[220px]">
+            <select id="filterCategory" onchange="applyFilters()" 
+              class="bg-slate-800 text-xs sm:text-sm text-amber-200 border border-slate-700 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-amber-500">
+              <option value="ALL">🌟 전체 소원 보기</option>
+              <option value="꿈과 학업">📚 꿈과 학업</option>
+              <option value="가족 건강과 행복">🏡 가족 건강과 행복</option>
+              <option value="우정과 학교생활">🤝 우정과 학교생활</option>
+              <option value="나라사랑과 평화">🕊️ 나라사랑과 평화</option>
+            </select>
+
+            <div class="relative flex-1">
+              <input type="text" id="searchAuthor" oninput="applyFilters()" placeholder="학생 이름/별명 검색..."
+                class="w-full bg-slate-800/80 text-xs sm:text-sm text-slate-200 placeholder-slate-500 border border-slate-700 rounded-lg px-3 py-1.5 pl-8 focus:outline-none focus:border-amber-500">
+              <svg class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+          </div>
+
+          <!-- Action Buttons Group -->
+          <div class="flex items-center gap-1.5 sm:gap-2">
+            <!-- Fullscreen -->
+            <button onclick="toggleFullscreen()" title="전체화면 (빔프로젝터용)"
+              class="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-medium border border-slate-700 flex items-center gap-1 transition">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path></svg>
+              <span class="hidden sm:inline">전체화면</span>
+            </button>
+
+            <!-- Sample Data Loader -->
+            <button onclick="loadSampleWishes()" title="예시 소원 데이터 불러오기"
+              class="px-2.5 py-1.5 bg-amber-950/60 hover:bg-amber-900/80 text-amber-300 rounded-lg text-xs font-medium border border-amber-600/40 flex items-center gap-1 transition">
+              <span>🏮</span>
+              <span class="hidden sm:inline">샘플 채우기</span>
+            </button>
+
+            <!-- Print / Archive Wish Gallery -->
+            <button onclick="openPrintModal()" title="학급 소원 모음 인쇄 또는 보관"
+              class="px-2.5 py-1.5 bg-rose-950/60 hover:bg-rose-900/80 text-rose-200 rounded-lg text-xs font-medium border border-rose-500/40 flex items-center gap-1 transition">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H9v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+              <span class="hidden sm:inline">소원록 인쇄</span>
+            </button>
+
+            <!-- Reset / Clear -->
+            <button onclick="clearAllWishesPrompt()" title="모든 소원 초기화"
+              class="p-1.5 text-slate-500 hover:text-rose-400 hover:bg-rose-950/30 rounded-lg transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+
+    <main id="studentView" class="hidden flex-1 w-full hanji-bg text-slate-800 p-4 sm:p-8 min-h-[calc(100vh-65px)] overflow-y-auto">
+      <div class="max-w-4xl mx-auto space-y-8 animate-float-up pb-12">
+        
+        <!-- Welcome Card -->
+        <div class="bg-white/90 border-2 border-amber-700/30 rounded-2xl p-6 shadow-sm relative overflow-hidden">
+          <div class="absolute -right-8 -bottom-8 opacity-10 text-9xl pointer-events-none font-traditional">燈</div>
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <span class="inline-block px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full mb-2 border border-amber-300">
+                초등·중등 역사 체험 학습
+              </span>
+              <h2 class="text-2xl sm:text-3xl font-bold font-traditional text-slate-900 tracking-tight">
+                나만의 고려 연등(蓮燈)에 소원 적기
+              </h2>
+              <p class="text-sm text-slate-600 mt-1">
+                고려시대 사람들은 연등회 날, 온 가족이 모여 등불을 만들고 밤하늘에 빛을 띄우며 복을 빌었습니다.
+              </p>
+            </div>
+            <button onclick="openHistoryModal()" class="shrink-0 px-3 py-2 bg-amber-50 hover:bg-amber-100 border border-amber-300 rounded-xl text-amber-900 text-xs font-medium flex items-center gap-1.5 transition shadow-sm">
+              <span>📖 왕건의 훈요 6조 만화 읽기</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Two Column Workshop Grid: Options on Left, Live Preview on Right -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Input Form Column -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <!-- Step 1: Lantern Shape Selection -->
+            <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-3">
+              <label class="block text-sm font-bold text-slate-800 font-traditional flex items-center justify-between">
+                <span>1단계 : 연등의 모양 고르기</span>
+                <span id="selectedShapeLabel" class="text-xs font-normal text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">연꽃등 (가장 대표적인 등)</span>
+              </label>
+              
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                <!-- Lotus -->
+                <button type="button" onclick="selectShape('lotus')" id="shapeBtn_lotus"
+                  class="shape-btn flex flex-col items-center p-3 rounded-xl border-2 border-amber-500 bg-amber-50/60 transition hover:border-amber-600 text-center">
+                  <span class="text-3xl mb-1">🪷</span>
+                  <span class="text-xs font-bold text-slate-800">연꽃등</span>
+                  <span class="text-[10px] text-slate-500">맑은 마음과 지혜</span>
+                </button>
+                <!-- Octagon Royal -->
+                <button type="button" onclick="selectShape('octagonal')" id="shapeBtn_octagonal"
+                  class="shape-btn flex flex-col items-center p-3 rounded-xl border-2 border-stone-200 hover:border-amber-400 bg-stone-50 transition text-center">
+                  <span class="text-3xl mb-1">🏮</span>
+                  <span class="text-xs font-bold text-slate-800">팔각등</span>
+                  <span class="text-[10px] text-slate-500">궁궐과 기품</span>
+                </button>
+                <!-- Watermelon -->
+                <button type="button" onclick="selectShape('watermelon')" id="shapeBtn_watermelon"
+                  class="shape-btn flex flex-col items-center p-3 rounded-xl border-2 border-stone-200 hover:border-amber-400 bg-stone-50 transition text-center">
+                  <span class="text-3xl mb-1">🍉</span>
+                  <span class="text-xs font-bold text-slate-800">수박등</span>
+                  <span class="text-[10px] text-slate-500">풍요와 건강한 결실</span>
+                </button>
+                <!-- Carp -->
+                <button type="button" onclick="selectShape('carp')" id="shapeBtn_carp"
+                  class="shape-btn flex flex-col items-center p-3 rounded-xl border-2 border-stone-200 hover:border-amber-400 bg-stone-50 transition text-center">
+                  <span class="text-3xl mb-1">🐟</span>
+                  <span class="text-xs font-bold text-slate-800">잉어등</span>
+                  <span class="text-[10px] text-slate-500">꿈을 향한 용기/등용문</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 2: Color Palette Selection -->
+            <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-3">
+              <label class="block text-sm font-bold text-slate-800 font-traditional">
+                2단계 : 한지 빛깔 고르기
+              </label>
+              <div class="flex flex-wrap gap-2.5" id="colorPickerContainer">
+                <!-- Color pills generated by JS -->
+              </div>
+            </div>
+
+            <!-- Step 3: Writer Info & Category -->
+            <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+              <label class="block text-sm font-bold text-slate-800 font-traditional">
+                3단계 : 소원 내용 작성하기
+              </label>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-600 mb-1">작성자 (학년·반 / 이름 또는 별명)</label>
+                  <input type="text" id="inputAuthor" placeholder="예: 4학년 2반 김고려" maxlength="15"
+                    class="w-full text-sm px-3.5 py-2 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-600 mb-1">소원 주제 분류</label>
+                  <select id="inputCategory" 
+                    class="w-full text-sm px-3.5 py-2 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-white">
+                    <option value="가족 건강과 행복">🏡 우리가족 건강과 행복</option>
+                    <option value="꿈과 학업">📚 나의 꿈과 학업 성취</option>
+                    <option value="우정과 학교생활">🤝 친구와의 우정 & 즐거운 학교</option>
+                    <option value="나라사랑과 평화">🕊️ 나라 사랑과 세계 평화</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between items-center mb-1">
+                  <label class="block text-xs font-semibold text-slate-600">밤하늘에 전하고 싶은 간절한 소원</label>
+                  <span id="charCount" class="text-xs text-slate-400">0 / 60자</span>
+                </div>
+                <textarea id="inputWish" rows="3" maxlength="60" 
+                  placeholder="예: 우리 가족 모두 아프지 않고 행복하게 해 주세요! 그리고 이번 학기 시험도 노력한 만큼 좋은 결과가 나오길 바랍니다."
+                  class="w-full text-sm p-3.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 resize-none font-traditional"></textarea>
+              </div>
+
+              <!-- Recommendation Prompt Chips -->
+              <div>
+                <span class="text-[11px] text-slate-500 block mb-1.5">💡 소원 적기 아이디어가 필요하다면 눌러보세요:</span>
+                <div class="flex flex-wrap gap-1.5 text-xs">
+                  <button type="button" onclick="fillPrompt('온 가족이 늘 건강하고 웃음 가득한 한 해가 되게 해 주세요.')" class="px-2 py-1 rounded bg-stone-100 hover:bg-stone-200 text-stone-700 text-[11px] transition">#가족건강</button>
+                  <button type="button" onclick="fillPrompt('꿈꾸는 목표를 향해 끝까지 포기하지 않는 용기를 주세요.')" class="px-2 py-1 rounded bg-stone-100 hover:bg-stone-200 text-stone-700 text-[11px] transition">#꿈과용기</button>
+                  <button type="button" onclick="fillPrompt('친구들과 다투지 않고 서로 배려하며 예쁜 추억을 많이 쌓고 싶어요.')" class="px-2 py-1 rounded bg-stone-100 hover:bg-stone-200 text-stone-700 text-[11px] transition">#우정배려</button>
+                  <button type="button" onclick="fillPrompt('전쟁과 재난 없는 평화롭고 따뜻한 세상이 되었으면 좋겠습니다.')" class="px-2 py-1 rounded bg-stone-100 hover:bg-stone-200 text-stone-700 text-[11px] transition">#세계평화</button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Launch Button -->
+            <div>
+              <button type="button" onclick="submitStudentWish()"
+                class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-600 via-rose-600 to-amber-600 text-white font-traditional font-bold text-lg shadow-xl shadow-amber-600/30 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-3">
+                <span class="text-2xl animate-bounce">🏮</span>
+                <span>연등 밤하늘로 띄우기 (소원 등록)</span>
+                <span class="text-2xl animate-bounce">✨</span>
+              </button>
+            </div>
+
+          </div>
+
+          <div class="lg:col-span-5 sticky top-24">
+            <div class="bg-gradient-to-b from-slate-900 to-slate-950 p-6 rounded-3xl border border-amber-900/50 shadow-2xl text-center text-white relative overflow-hidden flex flex-col items-center">
+              
+              <div class="w-full flex items-center justify-between text-xs text-amber-300/80 mb-2 border-b border-slate-800 pb-2">
+                <span>실시간 완성 미리보기</span>
+                <span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300">소원등</span>
+              </div>
+
+              <!-- Animated Floating Lantern SVG Container -->
+              <div class="w-full h-80 flex flex-col items-center justify-center relative py-4">
+                
+                <!-- Gentle Glow Backdrop -->
+                <div id="previewGlow" class="absolute w-44 h-44 rounded-full bg-amber-500/25 blur-3xl pointer-events-none animate-pulse"></div>
+
+                <!-- SVG Lantern -->
+                <div class="animate-gentle-sway flex flex-col items-center">
+                  <div id="previewLanternSvgWrap" class="w-36 h-36 flex items-center justify-center filter drop-shadow-[0_0_20px_rgba(245,158,11,0.6)]">
+                    <!-- SVG rendered via renderPreview() -->
+                  </div>
+
+                  <!-- Wish Paper Tag Hanging Below -->
+                  <div class="w-1.5 h-6 bg-amber-700/60 my-0.5"></div>
+                  <div class="w-36 bg-[#f7f2e4] text-stone-900 border border-amber-800/40 rounded-lg p-3 shadow-xl transform rotate-1 text-center font-traditional relative">
+                    <div class="w-2 h-2 rounded-full bg-rose-800 mx-auto -mt-1.5 mb-1 opacity-70"></div>
+                    <div id="previewTagAuthor" class="text-xs font-bold text-amber-950 border-b border-stone-300 pb-1 mb-1">
+                      작성자 미입력
+                    </div>
+                    <div id="previewTagWish" class="text-[11px] text-stone-700 leading-snug line-clamp-3">
+                      소원을 작성하면 이곳에 한지 소원지가 정성스럽게 달립니다.
+                    </div>
+                    <div class="text-[9px] text-rose-800 mt-1 font-bold">
+                      [ 祈願 / 소원성취 ]
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <p class="text-xs text-slate-400 mt-2">
+                "이 연등은 등록 즉시 선생님과 반 친구들이 함께 보는 <strong>밤하늘 연등 축제</strong>로 날아갑니다!"
+              </p>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+    <div id="historyModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 hidden">
+      <div class="bg-[#faf6ee] text-slate-900 w-full max-w-2xl rounded-3xl border-2 border-amber-700 shadow-2xl p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto font-traditional relative">
+        <button onclick="closeHistoryModal()" class="absolute top-5 right-5 p-2 rounded-full hover:bg-stone-200 text-stone-600 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+
+        <div class="text-center space-y-1">
+          <span class="text-xs font-bold text-amber-800 tracking-widest uppercase">고려사 인문학 이야기</span>
+          <h3 class="text-2xl font-bold text-slate-900">태조 왕건과 연등회 (훈요 6조)</h3>
+          <p class="text-xs text-slate-600 font-sans">고려를 세운 태조 왕건이 왜 연등회를 그토록 아꼈을까요?</p>
+        </div>
+
+        <div class="bg-amber-100/60 p-4 rounded-2xl border border-amber-300 text-sm leading-relaxed text-amber-950 space-y-2">
+          <p class="font-bold">📜 훈요 10조 중 제6조의 기록:</p>
+          <blockquote class="italic text-xs sm:text-sm pl-3 border-l-2 border-amber-600 text-stone-800">
+            "나의 소원은 연등(燃燈)과 팔관(八關)에 있으니, 연등은 부처님을 섬기고 팔관은 하늘과 명산·대천을 섬기는 것이다. 훗날 간신들이 이 축제의 규모나 의식을 함부로 줄이지 못하게 하고, 군신(임금과 신하)이 백성과 함께 어울려 경건하고 즐겁게 행하라."
+          </blockquote>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 font-sans text-xs">
+          <div class="bg-white p-3.5 rounded-xl border border-stone-200 shadow-sm space-y-1">
+            <span class="text-xl">🤝</span>
+            <h4 class="font-bold text-slate-800">온 백성의 대화합</h4>
+            <p class="text-slate-600">신라·백제·고구려로 나뉘었던 삼국 백성의 마음을 따뜻한 등불 아래 하나로 모았어요.</p>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-stone-200 shadow-sm space-y-1">
+            <span class="text-xl">🕯️</span>
+            <h4 class="font-bold text-slate-800">지혜의 빛 밝히기</h4>
+            <p class="text-slate-600">연등의 불빛은 세상의 어둠과 무지를 몰아내고 마음을 밝히는 부처님의 지혜를 상징해요.</p>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-stone-200 shadow-sm space-y-1">
+            <span class="text-xl">🎊</span>
+            <h4 class="font-bold text-slate-800">모두가 즐긴 국가 축제</h4>
+            <p class="text-slate-600">왕부터 노비까지 신분에 관계없이 모두 등불을 들고 밤새 노래와 춤을 즐겼답니다.</p>
+          </div>
+        </div>
+
+        <div class="text-center pt-2">
+          <button onclick="closeHistoryModal()" class="px-6 py-2.5 bg-amber-700 hover:bg-amber-800 text-white rounded-xl text-sm font-sans font-bold shadow-md transition">
+            역사 이야기 이해했어요! 연등 만들기
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="wishDetailModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 hidden">
+      <div class="hanji-card w-full max-w-lg rounded-3xl p-6 sm:p-8 space-y-6 relative animate-float-up font-traditional">
+        
+        <!-- Close Button -->
+        <button onclick="closeWishModal()" class="absolute top-4 right-4 p-2 rounded-full hover:bg-amber-200/50 text-stone-700 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+
+        <!-- Top Badge & Header -->
+        <div class="flex items-center justify-between border-b border-amber-900/20 pb-3">
+          <span id="modalCategoryBadge" class="text-xs px-3 py-1 bg-amber-200 text-amber-900 rounded-full font-sans font-semibold">
+            가족 건강과 행복
+          </span>
+          <span id="modalDate" class="text-xs text-stone-500 font-sans">
+            고려 연등제 출품
+          </span>
+        </div>
+
+        <!-- Lantern Visual & Student Info -->
+        <div class="flex items-center gap-4">
+          <div id="modalLanternIcon" class="w-20 h-20 shrink-0 bg-stone-900/5 rounded-2xl flex items-center justify-center p-2 border border-amber-700/20">
+            <!-- Dynamic SVG Icon -->
+          </div>
+          <div>
+            <span class="text-xs text-stone-500 block font-sans">소원을 올린 주인공</span>
+            <h3 id="modalAuthor" class="text-xl sm:text-2xl font-bold text-stone-900">
+              4학년 2반 김고려
+            </h3>
+            <span id="modalShapeTitle" class="text-xs text-amber-800">
+              🪷 정성 어린 연꽃등
+            </span>
+          </div>
+        </div>
+
+        <!-- Wish Message Board -->
+        <div class="bg-white/80 p-5 rounded-2xl border border-stone-200 relative shadow-inner">
+          <div class="text-xs text-stone-400 mb-2 font-sans flex items-center gap-1">
+            <span>📜</span> 소원 원문
+          </div>
+          <p id="modalWishContent" class="text-stone-900 text-base sm:text-lg leading-relaxed whitespace-pre-wrap font-bold">
+            소원 내용이 여기에 큼직하게 표시됩니다.
+          </p>
+
+          <!-- Traditional Red Stamp -->
+          <div class="absolute bottom-3 right-4 traditional-stamp px-2 py-0.5 text-xs font-bold tracking-widest">
+            所願成就
+          </div>
+        </div>
+
+        <!-- Action Tools: TTS Speech and Close -->
+        <div class="flex items-center justify-between gap-3 pt-2 font-sans">
+          <button id="btnTtsPlay" onclick="speakWish()" 
+            class="px-4 py-2 bg-amber-100 hover:bg-amber-200 text-amber-900 rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 border border-amber-300 transition shadow-sm">
+            <svg class="w-4 h-4 text-amber-700" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            <span>소원 소리 내어 읽기 (음성)</span>
+          </button>
+
+          <button onclick="closeWishModal()" class="px-5 py-2 bg-stone-800 hover:bg-stone-900 text-stone-100 rounded-xl text-xs sm:text-sm font-medium transition">
+            닫기
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="printModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 hidden">
+      <div class="bg-white text-slate-900 w-full max-w-4xl rounded-3xl p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto">
+        <div class="flex items-center justify-between border-b pb-4">
+          <div>
+            <h3 class="text-xl font-bold font-traditional">우리 반 연등 소원록 (인쇄 및 보관)</h3>
+            <p class="text-xs text-slate-500">학생들의 소원을 A4 용지나 PDF로 깔끔하게 출력해 학급 게시판에 붙일 수 있습니다.</p>
+          </div>
+          <div class="flex gap-2">
+            <button onclick="window.print()" class="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold flex items-center gap-1 shadow">
+              <span>🖨️ 인쇄하기 / PDF 저장</span>
+            </button>
+            <button onclick="closePrintModal()" class="px-3 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-xl text-xs">
+              닫기
+            </button>
+          </div>
+        </div>
+
+        <div id="printContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900/95 border border-amber-500 text-amber-200 px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+      <span id="toastIcon" class="text-2xl">✨</span>
+      <span id="toastMsg" class="text-sm font-medium font-traditional">소원이 성공적으로 등록되었습니다!</span>
+    </div>
+
+  </div>
+
+  <script>
+    /* State Management */
+    let currentMode = 'classroom'; // 'classroom' | 'student'
+    let wishes = [];
+    let filteredWishes = [];
+    let activeWishForModal = null;
+    let isBgmPlaying = false;
+    let audioCtx = null;
+    let bgmInterval = null;
+
+    // Student Form State
+    let selectedShape = 'lotus';
+    let selectedColor = '#f43f5e'; // vibrant rose
+    const colorPalette = [
+      { name: '연분홍(설화)', hex: '#f472b6', bg: 'bg-pink-400' },
+      { name: '진분홍(홍련)', hex: '#f43f5e', bg: 'bg-rose-500' },
+      { name: '황금빛(길상)', hex: '#f59e0b', bg: 'bg-amber-500' },
+      { name: '비취청(청자)', hex: '#06b6d4', bg: 'bg-cyan-500' },
+      { name: '연보라(자운)', hex: '#a855f7', bg: 'bg-purple-500' },
+      { name: '벽록색(솔잎)', hex: '#10b981', bg: 'bg-emerald-500' },
+    ];
+
+    /* Sample Realistic Student Data */
+    const sampleWishesData = [
+      {
+        id: 'w-1',
+        author: '4-1 김민준',
+        category: '가족 건강과 행복',
+        wish: '우리 가족 모두 아프지 않고 할머니 무릎 통증도 깨끗하게 낫게 해 주세요!',
+        shape: 'lotus',
+        color: '#f43f5e',
+        createdAt: '1026년 고려 개경',
+      },
+      {
+        id: 'w-2',
+        author: '4-1 이서연',
+        category: '꿈과 학업',
+        wish: '동물들을 치료해 주는 따뜻하고 멋진 수의사가 되는 꿈을 꼭 이루고 싶습니다.',
+        shape: 'carp',
+        color: '#06b6d4',
+        createdAt: '1026년 고려 개경',
+      },
+      {
+        id: 'w-3',
+        author: '4-1 박지호',
+        category: '우정과 학교생활',
+        wish: '우리 반 친구들 모두 한 해 동안 다투지 않고 즐겁게 소풍 가고 추억 만들면 좋겠어요.',
+        shape: 'watermelon',
+        color: '#10b981',
+        createdAt: '1026년 고려 개경',
+      },
+      {
+        id: 'w-4',
+        author: '4-1 최하은',
+        category: '나라사랑과 평화',
+        wish: '전 세계 어디에도 전쟁의 아픔이 없고 모든 어린이들이 안전하게 뛰어놀길 기도합니다.',
+        shape: 'octagonal',
+        color: '#f59e0b',
+        createdAt: '1026년 고려 개경',
+      },
+      {
+        id: 'w-5',
+        author: '4-1 정도윤',
+        category: '꿈과 학업',
+        wish: '어려운 수학 문제도 포기하지 않고 끈기 있게 끝까지 푸는 지혜를 주세요.',
+        shape: 'lotus',
+        color: '#a855f7',
+        createdAt: '1026년 고려 개경',
+      },
+      {
+        id: 'w-6',
+        author: '4-1 윤서아',
+        category: '가족 건강과 행복',
+        wish: '밤낮으로 고생하시는 부모님 늘 건강하시고 환하게 웃으실 일만 가득하세요!',
+        shape: 'lotus',
+        color: '#f472b6',
+        createdAt: '1026년 고려 개경',
+      },
+      {
+        id: 'w-7',
+        author: '4-1 강태민',
+        category: '우정과 학교생활',
+        wish: '전학 온 친구가 낯설지 않게 우리가 먼저 다정하게 다가가 친한 단짝이 되길!',
+        shape: 'carp',
+        color: '#f59e0b',
+        createdAt: '1026년 고려 개경',
+      },
+      {
+        id: 'w-8',
+        author: '4-1 교사 류지은',
+        category: '나라사랑과 평화',
+        wish: '우리 4학년 1반 어린이들 모두 천년의 등불처럼 마음속 따뜻한 빛을 잃지 않는 사람으로 자라나길 축복합니다.',
+        shape: 'octagonal',
+        color: '#f43f5e',
+        createdAt: '1026년 고려 개경',
+      }
+    ];
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    // Play meditative temple bell / chime chime
+    function playChime(freq = 520, duration = 2.5, gainLevel = 0.25) {
+      try {
+        const ctx = getAudioContext();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, ctx.currentTime);
+        // Exponential decay simulating traditional metal/brass bowl bell
+        gain.gain.setValueAtTime(gainLevel, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start();
+        osc.stop(ctx.currentTime + duration);
+      } catch (e) {
+        console.warn('Audio not initialized yet:', e);
+      }
+    }
+
+    // Lantern Launch celebration sound chord
+    function playLaunchHarmonics() {
+      const chords = [392, 440, 523.25, 659.25, 783.99]; // Sol, La, Do, Mi, Sol pentatonic Korean scale
+      chords.forEach((note, index) => {
+        setTimeout(() => {
+          playChime(note, 2.0 - (index * 0.15), 0.18);
+        }, index * 120);
+      });
+    }
+
+    // Toggle subtle ambient chime loop
+    function toggleBgm() {
+      const iconOn = document.getElementById('audioIconOn');
+      const iconOff = document.getElementById('audioIconOff');
+      
+      if (isBgmPlaying) {
+        isBgmPlaying = false;
+        clearInterval(bgmInterval);
+        iconOn.classList.add('hidden');
+        iconOff.classList.remove('hidden');
+        showToast('풍경 소리를 껐습니다.', '🔔');
+      } else {
+        isBgmPlaying = true;
+        iconOff.classList.add('hidden');
+        iconOn.classList.remove('hidden');
+        showToast('은은한 고려 풍경 소리가 켜졌습니다.', '🎐');
+        
+        // Initial soft chime
+        playChime(440, 3.0, 0.15);
+
+        // Gentle pentatonic random chimes like wind bells in a temple
+        bgmInterval = setInterval(() => {
+          if (!isBgmPlaying) return;
+          const pentatonic = [329.63, 392.00, 440.00, 523.25, 659.25];
+          const randomPitch = pentatonic[Math.floor(Math.random() * pentatonic.length)];
+          playChime(randomPitch, 3.2, 0.1);
+        }, 4200);
+      }
+    }
+
+    function switchMode(mode) {
+      currentMode = mode;
+      const classView = document.getElementById('classroomView');
+      const studView = document.getElementById('studentView');
+      const btnClass = document.getElementById('btnNavClassroom');
+      const btnStud = document.getElementById('btnNavStudent');
+
+      if (mode === 'classroom') {
+        classView.classList.remove('hidden');
+        studView.classList.add('hidden');
+        btnClass.className = 'px-3.5 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-all flex items-center gap-1.5 bg-gradient-to-r from-amber-600 to-amber-700 text-amber-50 shadow-md';
+        btnStud.className = 'px-3.5 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-all flex items-center gap-1.5 text-slate-300 hover:text-white';
+        // Resize canvas if switching back
+        resizeCanvas();
+      } else {
+        classView.classList.add('hidden');
+        studView.classList.remove('hidden');
+        btnStud.className = 'px-3.5 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-all flex items-center gap-1.5 bg-amber-600 text-white shadow-md';
+        btnClass.className = 'px-3.5 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-all flex items-center gap-1.5 text-slate-300 hover:text-white';
+        renderPreview();
+      }
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          showToast('전체화면 전환을 지원하지 않는 브라우저입니다.', '⚠️');
+        });
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    function getLanternSvg(shape, color, size = 100, isAnimated = false) {
+      const glow = color;
+      
+      if (shape === 'lotus') {
+        // Lotus Petal lantern
+        return `
+          <svg width="${size}" height="${size}" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="lotusGlow_${shape}_${color.replace('#','')}" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#fff8db" stop-opacity="1" />
+                <stop offset="60%" stop-color="${color}" stop-opacity="0.9" />
+                <stop offset="100%" stop-color="${color}" stop-opacity="0.4" />
+              </radialGradient>
+            </defs>
+            <!-- Hanging Ring -->
+            <circle cx="50" cy="10" r="4" stroke="#eab308" stroke-width="2" fill="none"/>
+            <path d="M50 14 L50 20" stroke="#ca8a04" stroke-width="2"/>
+            <!-- Outer Petals -->
+            <path d="M50 78 C25 78 12 55 20 40 C28 25 45 42 50 48 C55 42 72 25 80 40 C88 55 75 78 50 78 Z" fill="${color}" opacity="0.6"/>
+            <!-- Center Bloom Core -->
+            <path d="M50 78 C32 78 24 58 32 44 C40 30 48 38 50 35 C52 38 60 30 68 44 C76 58 68 78 50 78 Z" fill="url(#lotusGlow_${shape}_${color.replace('#','')})" />
+            <!-- Inner Bud -->
+            <ellipse cx="50" cy="56" rx="9" ry="16" fill="#fffbeb" opacity="0.9" />
+            <!-- Gold Base Pedestal -->
+            <path d="M42 77 L58 77 L55 83 L45 83 Z" fill="#b45309" stroke="#fef08a" stroke-width="1"/>
+            <!-- Tassel Hook -->
+            <line x1="50" y1="83" x2="50" y2="92" stroke="#dc2626" stroke-width="2"/>
+          </svg>
+        `;
+      } else if (shape === 'octagonal') {
+        // Octagonal Royal Pagoda Lantern
+        return `
+          <svg width="${size}" height="${size}" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Roof Top -->
+            <circle cx="50" cy="8" r="4" stroke="#fef08a" stroke-width="2" fill="none"/>
+            <polygon points="50,14 20,28 80,28" fill="#78350f" stroke="#eab308" stroke-width="1.5"/>
+            <!-- Lamp Body Octagonal Paper -->
+            <polygon points="24,28 76,28 85,68 15,68" fill="${color}" opacity="0.85"/>
+            <polygon points="34,28 66,28 72,68 28,68" fill="#fffbeb" opacity="0.6"/>
+            <!-- Wooden Frame Lattice -->
+            <line x1="50" y1="28" x2="50" y2="68" stroke="#451a03" stroke-width="2"/>
+            <line x1="34" y1="28" x2="28" y2="68" stroke="#451a03" stroke-width="1.5"/>
+            <line x1="66" y1="28" x2="72" y2="68" stroke="#451a03" stroke-width="1.5"/>
+            <!-- Bottom Base -->
+            <polygon points="18,68 82,68 72,78 28,78" fill="#78350f" stroke="#eab308" stroke-width="1.5"/>
+            <!-- Red Tassel -->
+            <line x1="50" y1="78" x2="50" y2="92" stroke="#dc2626" stroke-width="2.5"/>
+          </svg>
+        `;
+      } else if (shape === 'watermelon') {
+        // Rounded festive melon lantern with stripes
+        return `
+          <svg width="${size}" height="${size}" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="10" r="4" stroke="#ca8a04" stroke-width="2" fill="none"/>
+            <ellipse cx="50" cy="50" rx="36" ry="34" fill="${color}" opacity="0.85"/>
+            <!-- Longitudinal Paper Folds -->
+            <ellipse cx="50" cy="50" rx="22" ry="34" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.4" fill="none"/>
+            <ellipse cx="50" cy="50" rx="10" ry="34" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.5" fill="#fffbeb" fill-opacity="0.3"/>
+            <!-- Caps -->
+            <rect x="42" y="14" width="16" height="5" rx="2" fill="#78350f"/>
+            <rect x="42" y="81" width="16" height="5" rx="2" fill="#78350f"/>
+            <!-- Tassel -->
+            <line x1="50" y1="86" x2="50" y2="94" stroke="#dc2626" stroke-width="2"/>
+          </svg>
+        `;
+      } else {
+        // Carp Lantern (Symbol of Dragon Gate & Success)
+        return `
+          <svg width="${size}" height="${size}" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Ring -->
+            <circle cx="50" cy="12" r="3.5" stroke="#fef08a" stroke-width="1.5" fill="none"/>
+            <!-- Carp Body -->
+            <path d="M20 50 C25 32 60 28 82 46 C75 52 75 55 82 60 C58 76 25 68 20 50 Z" fill="${color}" opacity="0.85"/>
+            <!-- Tail Fins -->
+            <path d="M22 50 L8 38 L14 50 L6 62 Z" fill="${color}" opacity="0.7" stroke="#eab308" stroke-width="1"/>
+            <!-- Gills & Scales -->
+            <path d="M62 38 C58 45 58 55 62 62" stroke="#fffbeb" stroke-width="2" stroke-opacity="0.7"/>
+            <circle cx="74" cy="44" r="3" fill="#ffffff"/>
+            <circle cx="75" cy="44" r="1.5" fill="#1e293b"/>
+            <!-- Belly glow -->
+            <ellipse cx="48" cy="50" rx="14" ry="7" fill="#fffbeb" opacity="0.4"/>
+            <!-- Tassel -->
+            <line x1="48" y1="64" x2="48" y2="90" stroke="#dc2626" stroke-width="2"/>
+          </svg>
+        `;
+      }
+    }
+
+    function initStudentPalette() {
+      const container = document.getElementById('colorPickerContainer');
+      container.innerHTML = '';
+      
+      colorPalette.forEach((item, index) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => selectColor(item.hex);
+        btn.className = `flex items-center gap-2 px-3 py-2 rounded-xl border-2 transition ${selectedColor === item.hex ? 'border-amber-600 bg-amber-50 font-bold' : 'border-stone-200 hover:border-stone-400 bg-stone-50'}`;
+        btn.innerHTML = `
+          <span class="w-4 h-4 rounded-full ${item.bg} shadow-sm"></span>
+          <span class="text-xs text-stone-800">${item.name}</span>
+        `;
+        btn.id = `colorBtn_${item.hex.replace('#','')}`;
+        container.appendChild(btn);
+      });
+    }
+
+    function selectShape(shape) {
+      selectedShape = shape;
+      const shapes = ['lotus', 'octagonal', 'watermelon', 'carp'];
+      const shapeNames = {
+        lotus: '연꽃등 (맑은 마음과 번영)',
+        octagonal: '팔각등 (궁궐과 기품)',
+        watermelon: '수박등 (풍요와 결실)',
+        carp: '잉어등 (용기와 등용문)'
+      };
+      
+      document.getElementById('selectedShapeLabel').innerText = shapeNames[shape];
+      shapes.forEach(s => {
+        const b = document.getElementById(`shapeBtn_${s}`);
+        if (s === shape) {
+          b.className = 'shape-btn flex flex-col items-center p-3 rounded-xl border-2 border-amber-500 bg-amber-50/70 shadow-sm transition text-center';
+        } else {
+          b.className = 'shape-btn flex flex-col items-center p-3 rounded-xl border-2 border-stone-200 hover:border-amber-400 bg-stone-50 transition text-center';
+        }
+      });
+      renderPreview();
+    }
+
+    function selectColor(hex) {
+      selectedColor = hex;
+      initStudentPalette();
+      renderPreview();
+    }
+
+    function fillPrompt(text) {
+      const inputWish = document.getElementById('inputWish');
+      inputWish.value = text;
+      updateCharCount();
+      renderPreview();
+    }
+
+    function updateCharCount() {
+      const inputWish = document.getElementById('inputWish');
+      const charCount = document.getElementById('charCount');
+      charCount.innerText = `${inputWish.value.length} / 60자`;
+    }
+
+    function renderPreview() {
+      const wrap = document.getElementById('previewLanternSvgWrap');
+      const tagAuthor = document.getElementById('previewTagAuthor');
+      const tagWish = document.getElementById('previewTagWish');
+      const authorVal = document.getElementById('inputAuthor').value.trim();
+      const wishVal = document.getElementById('inputWish').value.trim();
+
+      wrap.innerHTML = getLanternSvg(selectedShape, selectedColor, 140, true);
+      tagAuthor.innerText = authorVal || '작성자 (예: 4학년 2반 김고려)';
+      tagWish.innerText = wishVal || '이곳에 적은 소원이 밤하늘로 떠오릅니다.';
+
+      // Dynamic glow background color
+      const glow = document.getElementById('previewGlow');
+      glow.style.backgroundColor = selectedColor;
+    }
+
+    function submitStudentWish() {
+      const author = document.getElementById('inputAuthor').value.trim();
+      const wishText = document.getElementById('inputWish').value.trim();
+      const category = document.getElementById('inputCategory').value;
+
+      if (!author) {
+        showToast('학년, 반, 이름을 입력해 주세요.', '✏️');
+        document.getElementById('inputAuthor').focus();
+        return;
+      }
+      if (!wishText) {
+        showToast('간절한 소원을 한 문장 이상 적어주세요.', '📜');
+        document.getElementById('inputWish').focus();
+        return;
+      }
+
+      const newWish = {
+        id: 'w-' + Date.now(),
+        author: author,
+        wish: wishText,
+        category: category,
+        shape: selectedShape,
+        color: selectedColor,
+        createdAt: '방금 전',
+        // Physics initial for canvas simulation
+        x: Math.random() * (window.innerWidth - 100) + 50,
+        y: window.innerHeight + 80, // starts below screen
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: -(0.55 + Math.random() * 0.65), // smooth floating up
+        scale: 0.8 + Math.random() * 0.4,
+        swayAngle: Math.random() * Math.PI * 2,
+      };
+
+      // Add to front of wish array
+      wishes.unshift(newWish);
+      saveWishesToStorage();
+      applyFilters();
+
+      // Trigger Celebration sounds
+      playLaunchHarmonics();
+      showToast('🏮 당신의 연등이 고려의 밤하늘로 높이 떠올랐습니다!', '✨');
+
+      // Clear student input
+      document.getElementById('inputWish').value = '';
+      updateCharCount();
+
+      // Transition smoothly to classroom view to watch lantern fly
+      setTimeout(() => {
+        switchMode('classroom');
+      }, 700);
+    }
+
+    const canvas = document.getElementById('skyCanvas');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    let animationFrameId = null;
+
+    // Pre-rendered cached SVG images for smooth 60fps canvas blitting
+    const lanternImageCache = {};
+
+    function getCachedImage(shape, color, callback) {
+      const key = `${shape}_${color}`;
+      if (lanternImageCache[key]) {
+        callback(lanternImageCache[key]);
+        return;
+      }
+      const svgStr = getLanternSvg(shape, color, 90);
+      const blob = new Blob([svgStr], { type: 'image/svg+xml;charset=utf-8' });
+      const URL = window.URL || window.webkitURL || window;
+      const blobURL = URL.createObjectURL(blob);
+      const img = new Image();
+      img.onload = () => {
+        lanternImageCache[key] = img;
+        callback(img);
+      };
+      img.src = blobURL;
+    }
+
+    function initStars(count = 140) {
+      stars = [];
+      for (let i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height * 0.75,
+          radius: Math.random() * 1.5 + 0.5,
+          alpha: Math.random() * 0.8 + 0.2,
+          flickerSpeed: Math.random() * 0.02 + 0.005,
+        });
+      }
+    }
+
+    function resizeCanvas() {
+      const container = document.getElementById('classroomView');
+      canvas.width = container.clientWidth;
+      canvas.height = container.clientHeight;
+      initStars();
+      
+      // Ensure all loaded wishes have valid positioning within bounds
+      wishes.forEach(w => {
+        if (!w.x || w.x > canvas.width) {
+          w.x = Math.random() * (canvas.width - 120) + 60;
+        }
+        if (!w.y) {
+          w.y = Math.random() * (canvas.height - 200) + 100;
+          w.vx = (Math.random() - 0.5) * 0.35;
+          w.vy = -(0.45 + Math.random() * 0.5);
+          w.scale = 0.75 + Math.random() * 0.35;
+          w.swayAngle = Math.random() * Math.PI * 2;
+        }
+      });
+    }
+
+    function startSkyAnimation() {
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+
+      function loop() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // 1. Draw twinkling stars
+        for (let s of stars) {
+          s.alpha += Math.sin(Date.now() * s.flickerSpeed) * 0.015;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(254, 243, 199, ${Math.max(0.1, Math.min(1, s.alpha))})`;
+          ctx.fill();
+        }
+
+        // 2. Animate and draw Floating Lanterns
+        const displayList = filteredWishes.length > 0 || document.getElementById('searchAuthor').value !== '' 
+          ? filteredWishes 
+          : wishes;
+
+        displayList.forEach(w => {
+          // Physics step: slowly rising and swaying
+          w.y += w.vy;
+          w.swayAngle += 0.02;
+          w.x += Math.sin(w.swayAngle) * 0.45 + w.vx;
+
+          // Wrap around top: when floating above screen, recycle smoothly to bottom
+          if (w.y < -120) {
+            w.y = canvas.height + 60 + Math.random() * 80;
+            w.x = Math.random() * (canvas.width - 100) + 50;
+          }
+
+          // Keep in horizontal screen bounds
+          if (w.x < 30) w.x = 30;
+          if (w.x > canvas.width - 30) w.x = canvas.width - 30;
+
+          // Draw the glow around lantern
+          const glowRadius = 38 * w.scale;
+          const radial = ctx.createRadialGradient(w.x, w.y, 5, w.x, w.y, glowRadius);
+          radial.addColorStop(0, 'rgba(251, 191, 36, 0.45)');
+          radial.addColorStop(0.7, 'rgba(245, 158, 11, 0.15)');
+          radial.addColorStop(1, 'rgba(245, 158, 11, 0)');
+          
+          ctx.beginPath();
+          ctx.arc(w.x, w.y, glowRadius, 0, Math.PI * 2);
+          ctx.fillStyle = radial;
+          ctx.fill();
+
+          // Draw Lantern from Cache
+          getCachedImage(w.shape, w.color, (img) => {
+            const dw = 70 * w.scale;
+            const dh = 70 * w.scale;
+            ctx.save();
+            ctx.translate(w.x, w.y);
+            // subtle rotation with sway
+            ctx.rotate(Math.sin(w.swayAngle) * 0.08);
+            ctx.drawImage(img, -dw / 2, -dh / 2, dw, dh);
+
+            // Draw hanging student name parchment tag
+            const tagW = 48 * w.scale;
+            const tagH = 22 * w.scale;
+            const tagY = dh / 2 + 2;
+
+            // Small red string
+            ctx.strokeStyle = '#b91c1c';
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(0, dh / 2 - 4);
+            ctx.lineTo(0, tagY);
+            ctx.stroke();
+
+            // Parchment Box
+            ctx.fillStyle = '#fefce8';
+            ctx.strokeStyle = '#b45309';
+            ctx.lineWidth = 1;
+            ctx.fillRect(-tagW / 2, tagY, tagW, tagH);
+            ctx.strokeRect(-tagW / 2, tagY, tagW, tagH);
+
+            // Author text
+            ctx.fillStyle = '#1e1b4b';
+            ctx.font = `bold ${Math.round(9 * w.scale)}px "Noto Sans KR", sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            // Truncate name if long
+            const truncatedName = w.author.length > 7 ? w.author.substring(0, 6) + '..' : w.author;
+            ctx.fillText(truncatedName, 0, tagY + tagH / 2);
+
+            ctx.restore();
+          });
+
+        });
+
+        animationFrameId = requestAnimationFrame(loop);
+      }
+
+      loop();
+    }
+
+    // Hit Test: Check which lantern was clicked by user
+    canvas.addEventListener('click', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const clickY = e.clientY - rect.top;
+
+      const displayList = filteredWishes.length > 0 || document.getElementById('searchAuthor').value !== '' 
+        ? filteredWishes 
+        : wishes;
+
+      // Find closest clicked lantern
+      let found = null;
+      for (let i = displayList.length - 1; i >= 0; i--) {
+        const w = displayList[i];
+        const dist = Math.hypot(clickX - w.x, clickY - w.y);
+        // Hitbox radius
+        if (dist <= 48 * w.scale) {
+          found = w;
+          break;
+        }
+      }
+
+      if (found) {
+        playChime(620, 1.2, 0.2);
+        openWishModal(found);
+      }
+    });
+
+    function applyFilters() {
+      const cat = document.getElementById('filterCategory').value;
+      const search = document.getElementById('searchAuthor').value.trim().toLowerCase();
+
+      filteredWishes = wishes.filter(w => {
+        const matchCat = (cat === 'ALL' || w.category === cat);
+        const matchSearch = (!search || w.author.toLowerCase().includes(search) || w.wish.toLowerCase().includes(search));
+        return matchCat && matchSearch;
+      });
+
+      updateBadgeCount();
+    }
+
+    function updateBadgeCount() {
+      const badge = document.getElementById('lanternCountBadge');
+      badge.innerText = wishes.length;
+    }
+
+    function saveWishesToStorage() {
+      try {
+        localStorage.setItem('goryeo_yeon_deung_wishes', JSON.stringify(wishes));
+      } catch (e) {
+        console.warn('LocalStorage save failed:', e);
+      }
+    }
+
+    function loadWishesFromStorage() {
+      try {
+        const saved = localStorage.getItem('goryeo_yeon_deung_wishes');
+        if (saved) {
+          wishes = JSON.parse(saved);
+        } else {
+          // If empty, load sample wishes
+          wishes = [...sampleWishesData];
+        }
+      } catch (e) {
+        wishes = [...sampleWishesData];
+      }
+      applyFilters();
+    }
+
+    function loadSampleWishes() {
+      wishes = JSON.parse(JSON.stringify(sampleWishesData));
+      wishes.forEach(w => {
+        w.x = Math.random() * (canvas.width - 120) + 60;
+        w.y = Math.random() * (canvas.height - 200) + 120;
+        w.vx = (Math.random() - 0.5) * 0.35;
+        w.vy = -(0.45 + Math.random() * 0.5);
+        w.scale = 0.75 + Math.random() * 0.35;
+        w.swayAngle = Math.random() * Math.PI * 2;
+      });
+      saveWishesToStorage();
+      applyFilters();
+      playLaunchHarmonics();
+      showToast('8개의 정성스러운 예시 소원 연등을 밤하늘에 띄웠습니다!', '🌸');
+    }
+
+    function clearAllWishesPrompt() {
+      // Using safe custom modal / confirmation flow instead of alert()
+      if (wishes.length === 0) {
+        showToast('이미 비어 있습니다.', 'ℹ️');
+        return;
+      }
+      const confirmed = window.confirm ? confirm('모든 학생들의 연등 소원을 밤하늘에서 비우시겠습니까?') : true;
+      if (confirmed) {
+        wishes = [];
+        filteredWishes = [];
+        saveWishesToStorage();
+        updateBadgeCount();
+        showToast('밤하늘의 모든 연등을 갈무리했습니다.', '🧹');
+      }
+    }
+
+    function openWishModal(wish) {
+      activeWishForModal = wish;
+      const modal = document.getElementById('wishDetailModal');
+      const author = document.getElementById('modalAuthor');
+      const content = document.getElementById('modalWishContent');
+      const catBadge = document.getElementById('modalCategoryBadge');
+      const shapeTitle = document.getElementById('modalShapeTitle');
+      const iconWrap = document.getElementById('modalLanternIcon');
+
+      author.innerText = wish.author;
+      content.innerText = wish.wish;
+      catBadge.innerText = wish.category || '일반 소원';
+      
+      const shapeNames = {
+        lotus: '🪷 정성 어린 연꽃등',
+        octagonal: '🏮 기품 있는 팔각등',
+        watermelon: '🍉 풍요를 기원하는 수박등',
+        carp: '🐟 용기와 등용문의 잉어등'
+      };
+      shapeTitle.innerText = shapeNames[wish.shape] || '전통 연등';
+      iconWrap.innerHTML = getLanternSvg(wish.shape, wish.color, 65);
+
+      modal.classList.remove('hidden');
+    }
+
+    function closeWishModal() {
+      document.getElementById('wishDetailModal').classList.add('hidden');
+      if (window.speechSynthesis && window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+      }
+    }
+
+    // TTS Read Aloud for teacher & class
+    function speakWish() {
+      if (!activeWishForModal) return;
+      if (!('speechSynthesis' in window)) {
+        showToast('음성 낭독을 지원하지 않는 브라우저입니다.', '⚠️');
+        return;
+      }
+
+      window.speechSynthesis.cancel();
+      const textToRead = `${activeWishForModal.author} 학생의 소원입니다. ${activeWishForModal.wish}`;
+      const utterance = new SpeechSynthesisUtterance(textToRead);
+      utterance.lang = 'ko-KR';
+      utterance.rate = 0.95;
+      utterance.pitch = 1.05;
+
+      utterance.onstart = () => {
+        document.getElementById('btnTtsPlay').classList.add('bg-amber-300');
+      };
+      utterance.onend = () => {
+        document.getElementById('btnTtsPlay').classList.remove('bg-amber-300');
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function openPrintModal() {
+      const container = document.getElementById('printContainer');
+      container.innerHTML = '';
+
+      if (wishes.length === 0) {
+        container.innerHTML = '<div class="col-span-3 text-center py-10 text-stone-500">등록된 소원이 없습니다.</div>';
+      } else {
+        wishes.forEach((w, i) => {
+          const card = document.createElement('div');
+          card.className = 'border border-amber-900/30 p-4 rounded-xl bg-amber-50/40 relative font-traditional break-inside-avoid shadow-sm';
+          card.innerHTML = `
+            <div class="flex items-center justify-between border-b border-stone-200 pb-1.5 mb-2">
+              <span class="text-xs font-bold text-amber-900">${w.author}</span>
+              <span class="text-[10px] text-stone-500">${w.category}</span>
+            </div>
+            <p class="text-xs text-stone-800 leading-relaxed mb-4">${w.wish}</p>
+            <div class="flex justify-between items-center text-[10px] text-stone-400">
+              <span>연등 모양: ${w.shape}</span>
+              <span class="text-rose-700 font-bold border border-rose-600 px-1 rounded">所願成就</span>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      }
+
+      document.getElementById('printModal').classList.remove('hidden');
+    }
+
+    function closePrintModal() {
+      document.getElementById('printModal').classList.add('hidden');
+    }
+
+    function openHistoryModal() {
+      document.getElementById('historyModal').classList.remove('hidden');
+    }
+
+    function closeHistoryModal() {
+      document.getElementById('historyModal').classList.add('hidden');
+    }
+
+    /* Toast Notification Helper */
+    function showToast(message, icon = '🏮') {
+      const toast = document.getElementById('toast');
+      const msg = document.getElementById('toastMsg');
+      const ico = document.getElementById('toastIcon');
+      msg.innerText = message;
+      ico.innerText = icon;
+
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3500);
+    }
+
+    window.addEventListener('load', () => {
+      initStudentPalette();
+      loadWishesFromStorage();
+      resizeCanvas();
+      startSkyAnimation();
+
+      // Input listeners for real-time preview
+      document.getElementById('inputAuthor').addEventListener('input', renderPreview);
+      document.getElementById('inputWish').addEventListener('input', () => {
+        updateCharCount();
+        renderPreview();
+      });
+
+      // Default preview render
+      renderPreview();
+    });
+
+    window.addEventListener('resize', () => {
+      if (currentMode === 'classroom') {
+        resizeCanvas();
+      }
+    });
+  </script>
+</body>
+</html>
